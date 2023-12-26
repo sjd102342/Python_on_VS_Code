@@ -1,0 +1,24 @@
+    f=first.strip().capitalize()
+    s=second.strip().capitalize()
+    p=parent.strip().capitalize()
+    c=city.strip()
+    print(f,s,p,c)
+    print(phone.isnumeric())
+    if phone[0]==start[0]:
+        print(True)
+    else:
+        print(False)
+    total_count=f.count(strfind)+s.count(strfind)+p.count(strfind)+c.count(strfind)
+    print(total_count)
+    print(string1.split())
+    print(c.find(strfind))
+	
+	
+
+
+Narasima Rahul Engineer kolkata
+True
+True
+2
+['trying', 'his', 'best']
+2

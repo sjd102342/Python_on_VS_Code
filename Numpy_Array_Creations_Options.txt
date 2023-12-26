@@ -1,0 +1,190 @@
+
+
+
+====================================================================================================
+ndarray Attributes
+Some of the important attributes of a ndarray are
+
+ndim : Returns number of dimensions.
+
+shape: Returns Shape in tuple.
+
+size : Total number of elements.
+
+dtype : Type of each element.
+
+itemsize : Size of each element in Bytes.
+
+nbytes : Total bytes consumed by all elements.
+
+Example 3
+
+print(y.ndim, y.shape, y.size, y.dtype, y.itemsize, y.nbytes)
+Output
+
+2 (2, 3) 6 int32 4 24
+
+Numpy dtypes
+Numpy supports various data types based on number of bytes required by the data elements.
+
+Data type can be explicitly specified with dtype argument.
+
+A ndarray, holding float values is defined in Example 4.
+
+Example 4
+
+y = np.array([[6, 9, 5],
+              [10, 82, 34]], 
+             dtype='float64')  
+print(y)
+print(y.dtype)
+Output
+
+array([[  6.,   9.,   5.],
+       [ 10.,  82.,  34.]])
+float64
+=====================================================================================================
+ndarrays from Lists
+Data available in lists, or tuples can be converted into numpy arrays using array method.
+
+Creating a 3-Dimensional array from a list of list of lists is shown in Example 1.
+
+
+import numpy as np
+a = [[[4.1, 2.5], [1.1, 2.3], [9.1, 2.5]], 
+     [[8.6, 9.9],[3.6, 4.3], [6.6, 0.3]]]
+
+x = np.array(a, dtype='float64')
+
+type(x), x.ndim, x.shape
+
+Output
+
+numpy.ndarray, 3, (2, 3, 2)
+======================================================================================================
+Array Creation Methods
+Numpy allows creation of arrays with default values like 0, 1, or another value.
+Example 1: Using zeros method
+
+x = np.zeros(shape=(2,4))
+print(x)
+Output of Example 1
+
+[[ 0.  0.  0.  0.]
+ [ 0.  0.  0.  0.]]
+Example 2 : Using full method
+
+y = np.full(shape=(2,3), fill_value=10.5)
+print(y)
+Output of Example 2
+
+[[ 10.5  10.5  10.5]
+ [ 10.5  10.5  10.5]]
+====================================================================================================
+Numeric Sequence Generators
+Two major methods used in numpy for generating number sequences are,
+
+arange : Numbers created based on step value.
+
+Syntax - numpy.arange([start, ]stop, [step, ]dtype=None)
+
+linspace : Numbers created based on size value.
+
+Syntax - numpy.linspace(start, stop, #num inbetween, endpoint=True, retstep=False, dtype=None)
+
+Example 1
+
+x = np.arange(3, 15, 2.5) # 2.5 is step
+print(x)
+Output of Example 1
+
+[  3.    5.5   8.   10.5  13. ]
+Example 2
+
+y = np.linspace(3, 15, 5) # 5 is size of array 'y'
+print(y)
+Output of Example 2
+
+[  3.   6.   9.  12.  15.]
+====================================================================================================
+Random Numbers Generator
+random module of numpy is used to generate various random sequences.
+Example
+
+np.random.seed(100) # setting seed
+x = np.random.rand(2) # 2 random numbers between 0 and 1
+
+print(x)
+Output of Example1
+
+[ 0.54340494  0.27836939]
+Example 2
+
+np.random.seed(100) # setting seed
+y = np.random.randint(10, 50, 3) # 3 random integers between 10 and 50
+
+print(y)
+Output of Example 2
+
+[18 34 13]
+====================================================================================================
+Simulating Normal Distribution
+randn is used to simulate standard normal distribution.
+Example 1
+
+np.random.seed(100)
+x = np.random.randn(3) # Standard normal distribution
+
+print(x)
+Output of Example1
+
+[-1.74976547  0.3426804   1.1530358 ]
+Example 2
+
+np.random.seed(100)
+x = 10 + 2*np.random.randn(3) # normal distribution with mean 10 and sd 2
+
+print(x)
+Output of Example 2
+
+[  5.62558632  10.85670101  12.88258951]
+====================================================================================================
+Reading Data from a file
+loadtxt is used to read data from a text file or any input data stream.
+Example 1
+
+from io import StringIO
+import numpy as np
+
+x = StringIO('''88.25 93.45 72.60 90.90
+72.3 78.85 92.15 65.75
+90.5 92.45 89.25 94.50
+''')
+
+d = np.loadtxt(x,delimiter=' ')
+
+print(d)
+
+print(d.ndim, d.shape)
+Output of Example 1
+
+[[ 88.25  93.45  72.6   90.9 ]
+ [ 72.3   78.85  92.15  65.75]
+ [ 90.5   92.45  89.25  94.5 ]]
+2 (3, 4)
+====================================================================================================
+print(np.eye(4,k=0))
+print("======================")
+print(np.identity(4))
+
+[[1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]]
+======================
+[[1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]]
+ 
+ =========================================================================
